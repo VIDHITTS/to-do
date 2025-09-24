@@ -29,7 +29,6 @@ body {
   min-height: 100vh;
 }
 
-/* Scrollbar styling */
 ::-webkit-scrollbar {
   width: 8px;
 }
@@ -48,7 +47,6 @@ body {
   background: rgba(255, 255, 255, 0.5);
 }
 
-/* Focus styles for accessibility */
 button:focus,
 input:focus,
 textarea:focus {
@@ -56,14 +54,12 @@ textarea:focus {
   outline-offset: 2px;
 }
 
-/* Smooth transitions for all interactive elements */
 button,
 input,
 .todo-item {
   transition: all 0.3s ease;
 }
 
-/* Remove default button styles */
 button {
   border: none;
   background: none;
@@ -71,13 +67,11 @@ button {
   font-family: inherit;
 }
 
-/* Input styles */
 input, textarea {
   font-family: inherit;
   font-size: inherit;
 }
 
-/* Selection styles */
 ::selection {
   background: rgba(102, 126, 234, 0.2);
   color: #333;

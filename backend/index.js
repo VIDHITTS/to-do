@@ -98,7 +98,6 @@ app.get("/todos/:id", async (req, res) => {
   }
 });
 
-// Graceful shutdown
 process.on('beforeExit', async () => {
   await prisma.$disconnect();
 });
@@ -112,8 +111,6 @@ process.on('SIGTERM', async () => {
   await prisma.$disconnect();
   process.exit(0);
 });
-
-// Start server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`🚀 Server started on port ${PORT}`);
