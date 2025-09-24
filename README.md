@@ -34,9 +34,13 @@ A modern, responsive todo application built with React frontend and Node.js/Expr
 
 3. Set up your MySQL database:
    - Create a database named `ap_db`
-   - Create a `.env` file with your database URL:
+   - Copy the environment template and configure your database:
    ```bash
-   echo 'DATABASE_URL="mysql://root:your_password@localhost:3306/ap_db"' > .env
+   cp .env.example .env
+   ```
+   - Edit `.env` file with your actual database credentials:
+   ```
+   DATABASE_URL="mysql://username:password@localhost:3306/ap_db"
    ```
    - Generate Prisma client:
    ```bash
