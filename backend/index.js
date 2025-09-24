@@ -1,3 +1,4 @@
+require("dotenv").config();
 const { PrismaClient } = require("@prisma/client");
 const express = require("express");
 const morgan = require("morgan");
@@ -8,7 +9,18 @@ const prisma = new PrismaClient();
 
 app.use(morgan("dev"));
 app.use(express.json());
-app.use(cors());
+// Configure CORS using env var FRONTEND_ORIGIN for production deployments
+const allowedOrigin = process.env.FRONTEND_ORIGIN || "*";
+app.use(
+  cors({
+    origin: allowedOrigin,
+  })
+);
+
+// Basic health check endpoint for uptime monitors / cloud platforms
+app.get("/health", (req, res) => {
+  res.status(200).json({ status: "ok" });
+});
 
 app.delete("/todos/:id", async (req, res) => {
   const { id } = req.params;
